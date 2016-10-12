@@ -69,7 +69,7 @@ namespace Captived
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Error");
+                MessageBox.Show(exception.Message, "Keep Alive Error");
             }
         }
 
