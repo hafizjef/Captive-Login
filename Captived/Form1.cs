@@ -88,9 +88,14 @@ namespace Captived
         private void btnLogin_Click(object sender, EventArgs e)
         {
             doLogin(usernameBox.Text, passBox.Text);
-            AddUpdateAppSettings("username", usernameBox.Text);
-            AddUpdateAppSettings("password", passBox.Text);
+
+            Properties.Settings.Default.username = usernameBox.Text;
+            Properties.Settings.Default.password = passBox.Text;
+
+            Properties.Settings.Default.Save();
+
             WindowState = FormWindowState.Minimized;
+
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
@@ -106,46 +111,8 @@ namespace Captived
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            usernameBox.Text = ReadSetting("username");
-            passBox.Text = ReadSetting("password");   
-        }
-
-        static void AddUpdateAppSettings(string key, string value)
-        {
-            try
-            {
-                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
-                if (settings[key] == null)
-                {
-                    settings.Add(key, value);
-                }
-                else
-                {
-                    settings[key].Value = value;
-                }
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
-            }
-            catch (ConfigurationErrorsException)
-            {
-                Console.WriteLine("Error writing app settings");
-            }
-        }
-
-
-        static String ReadSetting(string key)
-        {
-            try
-            {
-                var appSettings = ConfigurationManager.AppSettings;
-                string result = appSettings[key] ?? null;
-                return(result);
-            }
-            catch (ConfigurationErrorsException)
-            {
-                return null;
-            }
+            usernameBox.Text = Properties.Settings.Default.username;
+            passBox.Text = Properties.Settings.Default.password;
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
