@@ -38,8 +38,9 @@
             this.unmaskPass = new System.Windows.Forms.CheckBox();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logText = new System.Windows.Forms.TextBox();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.usernameBox.Location = new System.Drawing.Point(82, 12);
             this.usernameBox.MaxLength = 10;
             this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(126, 20);
+            this.usernameBox.Size = new System.Drawing.Size(239, 20);
             this.usernameBox.TabIndex = 0;
             this.usernameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.usernameBox.TextChanged += new System.EventHandler(this.usernameBox_TextChanged);
@@ -77,7 +78,7 @@
             this.passBox.MaxLength = 6;
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '*';
-            this.passBox.Size = new System.Drawing.Size(126, 20);
+            this.passBox.Size = new System.Drawing.Size(239, 20);
             this.passBox.TabIndex = 3;
             this.passBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passBox.TextChanged += new System.EventHandler(this.passBox_TextChanged);
@@ -85,7 +86,7 @@
             // btnLogin
             // 
             this.btnLogin.Enabled = false;
-            this.btnLogin.Location = new System.Drawing.Point(133, 98);
+            this.btnLogin.Location = new System.Drawing.Point(246, 180);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
@@ -122,13 +123,6 @@
             this.contextMenu.Name = "contextMenu";
             this.contextMenu.Size = new System.Drawing.Size(128, 48);
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // showInfoToolStripMenuItem
             // 
             this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
@@ -136,11 +130,29 @@
             this.showInfoToolStripMenuItem.Text = "Show Info";
             this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // logText
+            // 
+            this.logText.Location = new System.Drawing.Point(17, 87);
+            this.logText.Multiline = true;
+            this.logText.Name = "logText";
+            this.logText.ReadOnly = true;
+            this.logText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.logText.Size = new System.Drawing.Size(304, 87);
+            this.logText.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 133);
+            this.ClientSize = new System.Drawing.Size(333, 215);
+            this.Controls.Add(this.logText);
             this.Controls.Add(this.unmaskPass);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.passBox);
@@ -174,6 +186,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
+        private System.Windows.Forms.TextBox logText;
     }
 }
 

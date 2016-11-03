@@ -16,6 +16,7 @@ namespace Captived
     {
         private string url = "http://172.16.202.1:8090/httpclient.html";
         private string KPUrl = "http://172.16.202.1:8090/live";
+        private int trial = 1;
 
         public Form1()
         {
@@ -28,8 +29,10 @@ namespace Captived
             passBox.PasswordChar = unmaskPass.Checked ? '\0' : '*';
         }
 
+        
         private async void doLogin(string username, string password)
         {
+            
             try
             {
                 using (var client = new HttpClient())
@@ -48,8 +51,8 @@ namespace Captived
                     if (responseString.Contains("You have successfully logged in"))
                     {
                         // Login Success
-                        notifyIcon.BalloonTipText = "Login successfull";
-                        notifyIcon.ShowBalloonTip(500);
+                        logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ]" + "Login Sucessfull\n");
+                        btnLogin.Enabled = false;
                     }
                     else
                     {
@@ -69,7 +72,19 @@ namespace Captived
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message, "Keep Alive Error");
+                // MessageBox.Show(exception.Message, "Keep Alive Error");
+                logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ] " + exception.Message + "\n");
+                if (trial < 3)
+                {
+                    doLogin(usernameBox.Text, passBox.Text);
+                    trial++;
+                } else
+                {
+                    btnLogin.Enabled = true;
+                    logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ] " + "Stopping login thread\n");
+                    trial = 0;
+                    return;
+                }
             }
         }
 
@@ -94,8 +109,7 @@ namespace Captived
 
             Properties.Settings.Default.Save();
 
-            WindowState = FormWindowState.Minimized;
-
+            // WindowState = FormWindowState.Minimized;
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
