@@ -35,6 +35,7 @@ namespace Captived
             
             try
             {
+                btnLogin.Enabled = false;
                 using (var client = new HttpClient())
                 {
                     var values = new Dictionary<string, string>
@@ -51,13 +52,13 @@ namespace Captived
                     if (responseString.Contains("You have successfully logged in"))
                     {
                         // Login Success
-                        logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ]" + "Login Sucessfull\n");
-                        btnLogin.Enabled = false;
+                        logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Login Sucessfull\n");
                     }
                     else
                     {
                         showUI();
                         MessageBox.Show("Usename/Password combination error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnLogin.Enabled = true;
                         return;
                     }
                     while (true)
@@ -73,7 +74,7 @@ namespace Captived
             catch (Exception exception)
             {
                 // MessageBox.Show(exception.Message, "Keep Alive Error");
-                logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ] " + exception.Message + "\n");
+                logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + exception.Message + "\n");
                 if (trial < 3)
                 {
                     doLogin(usernameBox.Text, passBox.Text);
@@ -81,7 +82,7 @@ namespace Captived
                 } else
                 {
                     btnLogin.Enabled = true;
-                    logText.AppendText("[ " + DateTime.Now.ToString("hh:mm") + " ] " + "Stopping login thread\n");
+                    logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Stopping login thread\n");
                     trial = 0;
                     return;
                 }

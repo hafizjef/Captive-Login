@@ -49,7 +49,7 @@
             this.usernameBox.Location = new System.Drawing.Point(82, 12);
             this.usernameBox.MaxLength = 10;
             this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(239, 20);
+            this.usernameBox.Size = new System.Drawing.Size(218, 20);
             this.usernameBox.TabIndex = 0;
             this.usernameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.usernameBox.TextChanged += new System.EventHandler(this.usernameBox_TextChanged);
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 41);
+            this.label2.Location = new System.Drawing.Point(12, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 2;
@@ -78,7 +78,7 @@
             this.passBox.MaxLength = 6;
             this.passBox.Name = "passBox";
             this.passBox.PasswordChar = '*';
-            this.passBox.Size = new System.Drawing.Size(239, 20);
+            this.passBox.Size = new System.Drawing.Size(218, 20);
             this.passBox.TabIndex = 3;
             this.passBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passBox.TextChanged += new System.EventHandler(this.passBox_TextChanged);
@@ -86,7 +86,7 @@
             // btnLogin
             // 
             this.btnLogin.Enabled = false;
-            this.btnLogin.Location = new System.Drawing.Point(246, 180);
+            this.btnLogin.Location = new System.Drawing.Point(333, 180);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
@@ -139,19 +139,22 @@
             // 
             // logText
             // 
+            this.logText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logText.ForeColor = System.Drawing.SystemColors.WindowText;
             this.logText.Location = new System.Drawing.Point(17, 87);
             this.logText.Multiline = true;
             this.logText.Name = "logText";
             this.logText.ReadOnly = true;
             this.logText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logText.Size = new System.Drawing.Size(304, 87);
+            this.logText.Size = new System.Drawing.Size(391, 87);
             this.logText.TabIndex = 6;
+            this.logText.WordWrap = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 215);
+            this.ClientSize = new System.Drawing.Size(420, 215);
             this.Controls.Add(this.logText);
             this.Controls.Add(this.unmaskPass);
             this.Controls.Add(this.btnLogin);
