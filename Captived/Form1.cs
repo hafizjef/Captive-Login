@@ -52,7 +52,7 @@ namespace Captived
                     if (responseString.Contains("You have successfully logged in"))
                     {
                         // Login Success
-                        logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Login Sucessfull\n");
+                        logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Login Sucessfull" + Environment.NewLine);
                     }
                     else
                     {
@@ -74,7 +74,7 @@ namespace Captived
             catch (Exception exception)
             {
                 // MessageBox.Show(exception.Message, "Keep Alive Error");
-                logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + exception.Message + "\n");
+                logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + exception.Message + Environment.NewLine);
                 if (trial < 3)
                 {
                     doLogin(usernameBox.Text, passBox.Text);
@@ -82,7 +82,7 @@ namespace Captived
                 } else
                 {
                     btnLogin.Enabled = true;
-                    logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Stopping login thread\n");
+                    logText.AppendText("[" + DateTime.Now.ToString("hh:mm") + "] " + "Stopping login thread" + Environment.NewLine);
                     trial = 0;
                     return;
                 }
