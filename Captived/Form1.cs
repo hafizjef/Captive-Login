@@ -78,7 +78,10 @@ namespace Captived
                 if (trial < 3)
                 {
                     doLogin(usernameBox.Text, passBox.Text);
-                    trial++;
+                    if (trialBox.Checked) { } else
+                    {
+                        trial++;
+                    }
                 } else
                 {
                     btnLogin.Enabled = true;
@@ -145,9 +148,9 @@ namespace Captived
             if (WindowState == FormWindowState.Minimized)
             {
                 ShowInTaskbar = false;
-                notifyIcon.BalloonTipText = "WiFi login are running in background to keep your captive session alive";
+                // notifyIcon.BalloonTipText = "WiFi login are running in background to keep your captive session alive";
                 notifyIcon.Visible = true;
-                notifyIcon.ShowBalloonTip(500);
+                // notifyIcon.ShowBalloonTip(500);
                 Hide();
             }
 

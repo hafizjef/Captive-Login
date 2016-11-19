@@ -41,6 +41,7 @@
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logText = new System.Windows.Forms.TextBox();
+            this.trialBox = new System.Windows.Forms.CheckBox();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,11 +151,24 @@
             this.logText.TabIndex = 6;
             this.logText.WordWrap = false;
             // 
+            // trialBox
+            // 
+            this.trialBox.AutoSize = true;
+            this.trialBox.Checked = true;
+            this.trialBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.trialBox.Location = new System.Drawing.Point(230, 184);
+            this.trialBox.Name = "trialBox";
+            this.trialBox.Size = new System.Drawing.Size(97, 17);
+            this.trialBox.TabIndex = 7;
+            this.trialBox.Text = "Unlimited Retry";
+            this.trialBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 215);
+            this.Controls.Add(this.trialBox);
             this.Controls.Add(this.logText);
             this.Controls.Add(this.unmaskPass);
             this.Controls.Add(this.btnLogin);
@@ -190,6 +204,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
         private System.Windows.Forms.TextBox logText;
+        private System.Windows.Forms.CheckBox trialBox;
     }
 }
 
