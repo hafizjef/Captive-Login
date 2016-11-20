@@ -78,8 +78,13 @@ namespace Captived
                 if (trial < 3)
                 {
                     doLogin(usernameBox.Text, passBox.Text);
-                    if (trialBox.Checked) { } else
-                    {
+                    if (trialBox.Checked) {
+                        System.Threading.Thread.Sleep(3000);
+                        if (logText.TextLength > 500)
+                        {
+                            logText.Clear();
+                        }
+                    } else {
                         trial++;
                     }
                 } else
